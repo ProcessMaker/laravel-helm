@@ -1,6 +1,6 @@
 <?php
 
-namespace Kytoonlabs\LaravelHelm;
+namespace ProcessMaker\LaravelHelm;
 
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Str;
@@ -9,7 +9,7 @@ class Helm {
     /**
      * The path to the HELM binary
      */
-    protected static $binary_path = '/usr/local/bin/helm';
+    protected static $binary_path = '/usr/bin/helm';
 
     /**
      * The Symfony Process instance
@@ -48,6 +48,14 @@ class Helm {
     public static function delete(string $name, array $options = [], array $environments = []) : Helm
     {
         return static::execute('delete', [$name], $options, $environments);
+    }
+
+    /**
+     * Uninstall a Helm chart
+     */
+    public static function uninstall(string $name, array $options = [], array $environments = []) : Helm
+    {
+        return static::execute('uninstall', [$name], $options, $environments);
     }
 
     /**

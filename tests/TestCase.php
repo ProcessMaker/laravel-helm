@@ -1,10 +1,10 @@
 <?php
 
-namespace Kytoonlabs\LaravelHelm\Tests;
+namespace ProcessMaker\LaravelHelm\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Kytoonlabs\LaravelHelm\Helm;
-use Kytoonlabs\LaravelHelm\HelmServiceProvider;
+use ProcessMaker\LaravelHelm\Helm;
+use ProcessMaker\LaravelHelm\HelmServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -15,7 +15,7 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Helm::setPath(getenv('HELM_BINARY_PATH') ?: '/usr/local/bin/helm');
+        Helm::setPath(getenv('HELM_BINARY_PATH') ?: '/usr/bin/helm');
     }
 
     /**
