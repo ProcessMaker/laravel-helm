@@ -10,6 +10,6 @@ return [
     |
     */
 
-    'path' => env('HELM_BINARY_PATH', '/usr/local/bin/helm'),
+    'path' => env('HELM_BINARY_PATH', '/usr/bin/helm'),
     'process_timeout' => env('HELM_PROCESS_TIMEOUT', 3600),
 ];

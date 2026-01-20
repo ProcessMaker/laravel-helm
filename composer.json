@@ -1,39 +1,39 @@
 {
-    "name": "kytoonlabs/laravel-helm",
+    "name": "processmaker/laravel-helm",
     "description": "Laravel wrapper for HELM v3",
     "version": "1.0.2",
     "type": "library",
     "require": {
-        "illuminate/support": "*",
-        "php": "^8.2|^8.3",
-        "symfony/process": "^6.2"
+        "illuminate/support": "^12.0",
+        "php": "^8.4|^8.5",
+        "symfony/process": "^6.2|^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.2",
-        "phpunit/phpunit": "^9.6"
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^12.0"
 
     },
     "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
-            "Kytoonlabs\\LaravelHelm\\": "src/"
+            "ProcessMaker\\LaravelHelm\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kytoonlabs\\LaravelHelm\\Tests\\": "tests/"
+            "ProcessMaker\\LaravelHelm\\Tests\\": "tests/"
         }
     },
     "authors": [
         {
-            "name": "Enrique Ponce de Leon",
-            "email": "enrique@kytoonlabs.com"
+            "name": "ProcessMaker",
+            "email": "processmaker@processmaker.com"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Kytoonlabs\\LaravelHelm\\HelmServiceProvider"
+                "ProcessMaker\\LaravelHelm\\HelmServiceProvider"
             ]
         }
     },

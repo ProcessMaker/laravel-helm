@@ -1,6 +1,58 @@
+# Dependencies
 /vendor
 composer.phar
 composer.lock
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+
+# OS files
 .DS_Store
-database.sqlite
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# PHP
+.phpunit.result.cache
 .phpunit.cache
+*.cache
+*.log
+*.tmp
+
+# Testing
+.phpunit.cache/
+coverage/
+.phpunit.result.cache
+phpunit.xml.bak
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build & Distribution
+dist/
+build/
+*.phar
+
+# Temporary files
+*.bak
+*.swp
+*~
+.cache/

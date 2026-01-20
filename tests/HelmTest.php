@@ -1,14 +1,14 @@
 <?php
 
-namespace Kytoonlabs\LaravelHelm\Tests;
+namespace ProcessMaker\LaravelHelm\Tests;
 
-use Kytoonlabs\LaravelHelm\Helm;
-use Kytoonlabs\LaravelHelm\Tests\TestCase;
+use ProcessMaker\LaravelHelm\Helm;
+use ProcessMaker\LaravelHelm\Tests\TestCase;
 use Illuminate\Support\Str;
 
 /**
- * @covers Kytoonlabs\LaravelHelm\Helm
- * @covers Kytoonlabs\LaravelHelm\HelmServiceProvider
+ * @covers ProcessMaker\LaravelHelm\Helm
+ * @covers ProcessMaker\LaravelHelm\HelmServiceProvider
  */
 class HelmTest extends TestCase
 {
@@ -93,6 +93,30 @@ class HelmTest extends TestCase
         $this->assertTrue($helm->isSuccessful());
 
         $delete = Helm::delete($releaseName);
+        $delete->run();
+        $this->assertTrue($delete->isSuccessful());
+        $this->assertStringContainsString('release "'.$releaseName.'" uninstalled', $delete->getOutput());
+    }
+
+    public function testHelmUninstall() : void
+    {
+        $helm = Helm::uninstall('testrelease-'.Str::lower(Str::random(8)));
+        $helm->run();
+        $this->assertFalse($helm->isSuccessful());
+        $this->assertStringContainsString('release: not found', $helm->getErrorOutput());
+
+        $releaseName = 'testrelease-'.Str::lower(Str::random(8));
+        $helm = Helm::install(
+            $releaseName,
+            'oci://registry-1.docker.io/bitnamicharts/redis',
+            [
+                '--version' => '18.16.1'
+            ]
+        );
+        $helm->run();
+        $this->assertTrue($helm->isSuccessful());
+
+        $delete = Helm::uninstall($releaseName);
         $delete->run();
         $this->assertTrue($delete->isSuccessful());
         $this->assertStringContainsString('release "'.$releaseName.'" uninstalled', $delete->getOutput());

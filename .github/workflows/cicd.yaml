@@ -19,7 +19,7 @@ jobs:
     - name: Setup PHP with PCOV
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3'
+        php-version: '8.5'
         extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, yaml
         coverage: pcov
     - name: Install Heml 3
@@ -49,4 +49,4 @@ jobs:
       uses: codecov/codecov-action@v4.0.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        slug: kytoonlabs/laravel-helm
+        slug: processmaker/laravel-helm
