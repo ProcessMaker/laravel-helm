@@ -293,7 +293,7 @@ composer test
 
 ## License
 
-Laravel Helm package is licensed under the Apache 2.0. See the LICENSE file for details.
+Laravel Helm package is licensed under the Apache 2.0. See the LICENSE file for details. 2026
 
 ## Support
 
